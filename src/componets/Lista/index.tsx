@@ -1,26 +1,17 @@
-import React, { useState } from "react";
 // import './style.scss';
 import style from "./Lista.module.scss";
 import Item from "./Item";
 
-function Lista(){ //paramentros da função e sem funçao obg, apenas retornar oqe escrever
-    const [tarefas, /*index 0 é tarefas*/ setTarefas /*index 1*/] = useState([{ /* para mudar o estado da função useState função inicial é as tarefas*/
-        tarefa: 'React',
-        tempo: '02:00:00'
-    },{
-        tarefa: 'JavaScript',
-        tempo:  '01:00:00'
+interface ITarefa {
+    tarefa: string,
+    tempo: string
+}
 
-},{
-        tarefa: 'TypeScript',
-        tempo: '03:00:00'
-}]);
+function Lista({tarefas}: {tarefas: ITarefa[]}){ //paramentros da função e sem funçao obg, apenas retornar oqe escrever
+    
     return(
          <aside className={style.listaTarefas}>
-            <h2 onClick={() => {
-                setTarefas ([...tarefas, { tarefa: "Estudar estado", tempo: "05:00:00"}]) //parentes função
-
-            }}>
+            <h2>
                 Estudo do Dia
                 <ul>
                     {tarefas.map((item, index) => (

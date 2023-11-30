@@ -5,18 +5,18 @@ import style from "./Formulario.module.scss";
 
 class Formulario extends React.Component{
     state = {
-        tarefa: "1",
+        tarefa: "",
         tempo: "00:00:00"
     }
 
-    adicionarTarefa(evento){
-        evento.preventDefault();
-        console.log('state: ',)
+    adicionarTarefa(evento: React.FormEvent <HTMLFormElement>){ //nào pode ser any (varialvel desconhecido) Evento de formulario que pega dentro objeto nao react
+        evento.preventDefault(); //não atualizar a pagina, e não colcoar na url informções do formulario
+        console.log('state: ', this.state)
     }
 
     render(){ //função obrigatorio render(){}
         return(
-            <form className={style.novaTarefa} onSubmit={this.adicionarTarefa}> 
+            <form className={style.novaTarefa} onSubmit={this.adicionarTarefa.bind(this)}> {/*bind associar o thi por isso bind*/} 
             {/* nome style, pois pegou do import from la em cima, com nome style, teria um outro nome se tivesse colocado */}
                 <div className={style.inputContainer}>
                     <label htmlFor="tarefa"> {/*htmlfor para focar onde clicou*/}
@@ -33,7 +33,7 @@ class Formulario extends React.Component{
 
 
                 </div>
-                <Botao>Adicionar</Botao>
+                <Botao type="submit">Adicionar</Botao>
                     
                 
             </form>
