@@ -12,11 +12,21 @@ import { ITarefa } from '../types/tarefa';
 function App() {
   const [tarefas, /*index 0 é tarefas*/ setTarefas /*index 1*/] = useState<ITarefa[]>([] /* para mudar o estado da função useState função inicial é as tarefas*/
     ); //Tipagem: useState<ITarefa[] | []>([] - Especificou que pode ser ITarefas ou array vazia PARA TIPAR SINAL DE MENOR E MAIOR
-  return (
+  const [selecionado, setSelecionado] = useState<ITarefa>();
+
+  function selecionaTarefa(tarefaSelecionada:  ITarefa){
+    setSelecionado(tarefaSelecionada);
+
+
+  }
+    return (
     <div className={style.AppStyle}> 
     {/* em vez de importar como string classname="...." vms impportar como varial js por causa do modulo*/}
      <Formulario setTarefas={setTarefas}/> {/* Estiliza*/}
-     <Lista tarefas={tarefas}/>
+     <Lista 
+      tarefas={tarefas}
+      selecionaTarefa={selecionaTarefa}
+      />
      <Cronometro />
     </div>
   );
