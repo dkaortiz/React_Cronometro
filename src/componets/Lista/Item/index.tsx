@@ -1,7 +1,7 @@
 import { ITarefa } from "../../../types/tarefa";
 import style from "../Lista.module.scss"
 
-function Item ({tarefa, tempo, selecionado, completado, id} : ITarefa){
+export default function Item ({tarefa, tempo, selecionado, completado, id} : ITarefa){
     console.log('Item atual: ',{tarefa, tempo, selecionado, completado, id} )
     return(
         <li className={style.item}> {/*key pra identificar pois nao tem um class*/}
@@ -11,4 +11,3 @@ function Item ({tarefa, tempo, selecionado, completado, id} : ITarefa){
     )
 }
 
-export default Item;
