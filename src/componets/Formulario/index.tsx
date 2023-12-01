@@ -2,13 +2,12 @@ import React from "react";
 import Botao from "../Botao";
 // import './style.scss' não é mais Formulario, pois style, esta como modulo
 import style from "./Formulario.module.scss";
+import { ITarefa } from "../../types/tarefa";
+// import ITarefa from "../../types/tarefa";
+import { v4 as uuidv4 } from 'uuid';
 
 class Formulario extends React.Component<{
-    setTarefas: React.Dispatch<React.SetStateAction<{
-        tarefa: string;
-        tempo: string
-        
-    }[]>>
+    setTarefas: React.Dispatch<React.SetStateAction<ITarefa[]>>
 }>
 
 {
@@ -19,7 +18,20 @@ class Formulario extends React.Component<{
 
     adicionarTarefa(evento: React.FormEvent <HTMLFormElement>){ //nào pode ser any (varialvel desconhecido) Evento de formulario que pega dentro objeto nao react
         evento.preventDefault(); //não atualizar a pagina, e não colcoar na url informções do formulario
-        console.log('state: ', this.state)
+        this.props.setTarefas(tarefasAntigas=>
+            [
+                ...tarefasAntigas,
+            {
+                ...this.state,
+                selecionado: false,
+                completado: false,
+                id: uuidv4()
+            }])
+
+        this.setState({
+            tarefa: "",
+            tempo: "00:00"
+        })
     }
 
     render(){ //função obrigatorio render(){}

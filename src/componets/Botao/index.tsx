@@ -5,7 +5,9 @@ import style from "./Botao.module.scss";
 class Botao extends React.Component < { 
     children: React.ReactNode, 
     type?: "button" | "submit" | "reset" | undefined} > { //prop: nome da prop "propriedade "que nesse caso é texto com tipo string (isso para identificar que esta utilizando typescript e não react)
-    render() { //função obrigatoria
+    //as informçoes do type, pegou tipo type, pelo <button> na linha de baixo
+
+        render() { //função obrigatoria
         const{type = "button"} = this.props;
         // const color = "red"
         return( //retorna um html (podendeo escrever JS)
