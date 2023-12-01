@@ -3,7 +3,15 @@ import Botao from "../Botao";
 // import './style.scss' não é mais Formulario, pois style, esta como modulo
 import style from "./Formulario.module.scss";
 
-class Formulario extends React.Component{
+class Formulario extends React.Component<{
+    setTarefas: React.Dispatch<React.SetStateAction<{
+        tarefa: string;
+        tempo: string
+        
+    }[]>>
+}>
+
+{
     state = {
         tarefa: "",
         tempo: "00:00:00"

@@ -1,11 +1,11 @@
 // import './style.scss';
 import style from "./Lista.module.scss";
 import Item from "./Item";
+// import { ITarefa } from "../../types/tarefa";
+import ITarefa from "../../types/tarefa"
 
-interface ITarefa {
-    tarefa: string,
-    tempo: string
-}
+
+
 
 function Lista({tarefas}: {tarefas: ITarefa[]}){ //paramentros da função e sem funçao obg, apenas retornar oqe escrever
     
