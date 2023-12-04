@@ -42,7 +42,7 @@ class Formulario extends React.Component<{
                     <label htmlFor="tarefa"> {/*htmlfor para focar onde clicou*/}
                         Adicione um estudo
                     </label>
-                    <input type="text" name="tarefa" value={this.state.tarefa} onChange={evento => this.setState({...this.state, tarefa: evento.target.value})} id="tarefa"placeholder="Oque voê quer estudar" required/>
+                    <input type="text" name="tarefa" value={this.state.tarefa} onChange={evento => this.setState({...this.state, tarefa: evento.target.value})} id="tarefa"placeholder="Oque você quer estudar" required/>
                 </div>
 
                 <div className={style.inputContainer}>
