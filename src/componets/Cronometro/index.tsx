@@ -19,6 +19,15 @@ function Cronometro({selecionado} : Props){
         }
         
     },[selecionado])
+    function regressiva(contador: number = 0){
+        setTimeout(()=>{
+            if(contador > 0){
+                setTempo(contador-1);
+                return regressiva(contador-1)
+            }
+        },1000)//executar apos mil milessegundos (1segundos)
+        
+    }
    
     return(
         <div className={style.cronometro}>
@@ -28,7 +37,7 @@ function Cronometro({selecionado} : Props){
                 <Relogio tempo={tempo} /> {/* dessa forma estiliza */}
 
             </div>
-            <Botao>
+            <Botao onClick={()=> regressiva(tempo)}>
                 Começar
             </Botao>
         </div>
